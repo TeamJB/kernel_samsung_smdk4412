@@ -2574,7 +2574,11 @@ static void s5p_hdmi_ctrl_internal_stop(void)
 	struct s5p_hdmi_tg			*tg = &ctrl->tg;
 
 	tvout_dbg("\n");
+
+#ifdef CONFIG_HDMI_14A_3D
 	s5p_hdmi_reg_hpd_deglitch(false, 0);
+#endif
+
 #ifdef CONFIG_HDMI_HPD
 	s5p_hpd_set_eint();
 #endif
@@ -2736,7 +2740,10 @@ int s5p_hdmi_ctrl_start(
 		s5p_hdcp_start();
 
 	s5p_hdmi_reg_enable(true);
+
+#ifdef CONFIG_HDMI_14A_3D
 	s5p_hdmi_reg_hpd_deglitch(true, 0xff);
+#endif
 
 #ifdef CONFIG_HDMI_HPD
 	s5p_hpd_set_hdmiint();

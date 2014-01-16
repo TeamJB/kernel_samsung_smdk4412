@@ -96,6 +96,7 @@
 #include <plat/s3c64xx-spi.h>
 #endif
 
+#include <mach/cpufreq.h>
 #include <mach/map.h>
 #include <mach/exynos-clock.h>
 #include <mach/media.h>
